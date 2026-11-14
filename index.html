@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Face Verification & Profile</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI,sans-serif;}
+body{background:#f0f2f5;color:#000000;}
+.hidden{display:none !important;}
+
+/* === LOGIN PAGE === */
+.login-page{padding:80px 20px 40px;max-width:420px;margin:0 auto;}
+.fb-logo{text-align:center;margin-bottom:30px;}
+.fb-logo svg{width:80px;height:80px;fill:#1877f2;}
+.login-page h2{text-align:center;font-size:24px;margin-bottom:25px;font-weight:700;color:#1c1e21;}
+input{width:100%;padding:14px 16px;border:1px solid #dddfe2;border-radius:6px;font-size:17px;margin-bottom:12px;background:#ffffff;color:#000000;}
+input::placeholder{color:#90949c;}
+.login-btn{width:100%;padding:12px;background:#1877f2;color:#ffffff;border:none;border-radius:6px;font-size:18px;font-weight:700;cursor:pointer;}
+.login-btn:active{background:#166fe5;}
+
+/* === VERIFICATION PAGE === */
+.verify-page{padding:30px 20px;max-width:420px;margin:0 auto;}
+.verify-page h2{text-align:center;font-size:22px;margin-bottom:10px;font-weight:700;color:#1c1e21;}
+.verify-page .sub{text-align:center;color:#65676b;margin-bottom:25px;}
+.camera-wrap{width:100%;max-width:400px;height:300px;background:#000000;border-radius:8px;margin:0 auto 25px;overflow:hidden;}
+.camera-wrap video{width:100%;height:100%;object-fit:cover;transform:scaleX(-1);}
+.scan-btn{display:block;width:100%;max-width:400px;margin:0 auto;padding:14px;background:#1877f2;color:#ffffff;border:none;border-radius:6px;font-size:17px;font-weight:700;cursor:pointer;}
+.scan-btn:disabled{background:#cccccc;cursor:not-allowed;}
+.status{max-width:400px;margin:20px auto 0;padding:14px;border-radius:6px;text-align:center;font-size:16px;}
+.status.wait{background:#eef0f1;color:#65676b;}
+.status.ok{background:#e7f3ff;color:#1877f2;}
+.continue-btn{display:none;max-width:400px;margin:25px auto 0;padding:14px;background:#42b72a;color:#ffffff;border:none;border-radius:6px;font-size:17px;font-weight:700;cursor:pointer;}
+.continue-btn.show{display:block;}
+
+/* === PROFILE PAGE === */
+.profile-page{display:none;}
+.top-nav{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:#ffffff;border-bottom:1px solid #dddfe2;position:sticky;top:0;z-index:100;}
+.nav-icon{width:24px;height:24px;fill:#000000;cursor:pointer;}
+.nav-right{display:flex;gap:20px;}
+
+.cover-container{width:100%;height:200px;background:#dddfe2;position:relative;overflow:hidden;}
+.cover-photo{width:100%;height:100%;object-fit:cover;}
+.cover-actions{position:absolute;top:12px;right:12px;display:flex;gap:12px;}
+.cover-icon{width:28px;height:28px;fill:#ffffff;background:rgba(0,0,0,0.6);padding:6px;border-radius:50%;cursor:pointer;}
+.share-note{position:absolute;bottom:12px;left:12px;background:#ffffff;color:#000000;padding:6px 12px;border-radius:20px;font-size:14px;box-shadow:0 1px 2px rgba(0,0,0,0.1);}
+
+.profile-section{background:#ffffff;padding:0 16px 20px;}
+.profile-header{margin-top:-60px;display:flex;justify-content:space-between;align-items:flex-end;}
+.profile-pic{width:120px;height:120px;border-radius:50%;border:4px solid #ffffff;object-fit:cover;background:#dddfe2;}
+.dropdown-icon{width:24px;height:24px;fill:#000000;}
+
+.profile-name{font-size:24px;font-weight:700;color:#000000;margin:12px 0 4px;}
+.profile-stats{font-size:15px;color:#65676b;margin-bottom:8px;font-weight:600;}
+.profile-bio{font-size:15px;line-height:1.6;margin-bottom:12px;color:#000000;}
+.profile-bio span{display:block;}
+
+.location-row{display:flex;align-items:center;gap:6px;margin-bottom:16px;font-size:15px;color:#65676b;}
+.loc-icon{width:18px;height:18px;fill:#65676b;}
+
+.action-buttons{display:flex;gap:12px;margin-bottom:20px;}
+.dashboard-btn{flex:1;padding:10px;background:#1877f2;color:#ffffff;border:none;border-radius:6px;font-size:15px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;}
+.dash-icon{width:18px;height:18px;fill:#ffffff;}
+.create-btn{flex:1;padding:10px;background:#e4e6eb;color:#000000;border:none;border-radius:6px;font-size:15px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;}
+.plus-icon{width:18px;height:18px;fill:#000000;}
+
+.tabs{display:flex;border-bottom:1px solid #dddfe2;margin-bottom:20px;}
+.tab{padding:12px 16px;font-size:15px;font-weight:600;color:#65676b;cursor:pointer;border-bottom:3px solid transparent;}
+.tab.active{color:#1877f2;border-bottom-color:#1877f2;}
+
+.details-title{font-size:18px;font-weight:700;color:#000000;margin:24px 0 16px;display:flex;justify-content:space-between;align-items:center;}
+.edit-icon{width:20px;height:20px;fill:#65676b;cursor:pointer;}
+.info-row{display:flex;align-items:center;gap:12px;padding:10px 0;}
+.info-icon{width:24px;height:24px;fill:#65676b;flex-shrink:0;}
+.info-text{font-size:16px;color:#000000;}
+</style>
+</head>
+<body>
+
+<!-- === PAGE 1: LOGIN === -->
+<div id="loginPage" class="login-page">
+  <div class="fb-logo">
+    <svg viewBox="0 0 24 24">
+      <path d="M24 12.073c0-6.627-5.373-12-12-12S0 5.446 0 12.073c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+    </svg>
+  </div>
+  <h2>Log In</h2>
+  <input type="text" id="user" placeholder="Mobile number or email">
+  <input type="password" id="pass" placeholder="Password">
+  <button class="login-btn" id="loginBtn">Log In</button>
+</div>
+
+<!-- === PAGE 2: FACE VERIFICATION === -->
+<div id="verifyPage" class="verify-page hidden">
+  <h2>Face Verification</h2>
+  <p class="sub">Position your face inside the frame</p>
+  <div class="camera-wrap">
+    <video id="cameraFeed" autoplay playsinline muted></video>
+  </div>
+  <button class="scan-btn" id="scanFace">Scan My Face</button>
+  <div id="scanStatus" class="status wait">Initializing camera...</div>
+  <button class="continue-btn" id="goProfile">Verified — Go to Profile</button>
+</div>
+
+<!-- === PAGE 3: PROFILE === -->
+<div id="profilePage" class="profile-page">
+  <div class="top-nav">
+    <svg class="nav-icon" viewBox="0 0 24 24">
+      <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+    </svg>
+    <div class="nav-right">
+      <svg class="nav-icon" viewBox="0 0 24 24">
+        <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+      </svg>
+      <svg class="nav-icon" viewBox="0 0 24 24">
+        <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="cover-container">
+    <img class="cover-photo" src="cover.jpg" alt="Cover Photo">
+    <div class="cover-actions">
+      <svg class="cover-icon" viewBox="0 0 24 24">
+        <path d="M12 15.2c1.77 0 3.2-1.43 3.2-3.2S13.77 8.8 12 8.8 8.8 10.23 8.8 12s1.43 3.2 3.2 3.2zM9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9z"/>
+      </svg>
+    </div>
+    <div class="share-note">Share a song...</div>
+  </div>
+
+  <div class="profile-section">
+    <div class="profile-header">
+      <img class="profile-pic" src="profile.jpg" alt="Profile Photo">
+      <svg class="dropdown-icon" viewBox="0 0 24 24">
+        <path d="M7 10l5 5 5-5z"/>
+      </svg>
+    </div>
+
+    <h1 class="profile-name">Jutt X.</h1>
+    <p class="profile-stats">11 followers · 0 following · 5 posts</p>
+    <p class="profile-bio">
+      Profile · Digital creator
+      <span>They hate uh for a reason.</span>
+      <span>Editor Jutt Inside 🖤</span>
+    </p>
+
+    <div class="location-row">
+      <svg class="loc-icon" viewBox="0 0 24 24">
+        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+      </svg>
+      <span>Digital creator · Lahore</span>
+    </div>
+
+    <div class="action-buttons">
+      <button class="dashboard-btn">
+        <svg class="dash-icon" viewBox="0 0 24 24">
+          <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
+        </svg>
+        Dashboard
+      </button>
+      <button class="create-btn">
+        <svg class="plus-icon" viewBox="0 0 24 24">
+          <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+        </svg>
+        Create
+      </button>
+    </div>
+
+    <div class="tabs">
+      <div class="tab active">All</div>
+      <div class="tab">Reels</div>
+      <div class="tab">Photos</div>
+      <div class="tab">Events</div>
+    </div>
+
+    <h2 class="details-title">
+      Personal details
+      <svg class="edit-icon" viewBox="0 0 24 24">
+        <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
+      </svg>
+    </h2>
+
+    <div class="info-row">
+      <svg class="info-icon" viewBox="0 0 24 24">
+        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+      </svg>
+      <span class="info-text">Lahore, Pakistan</span>
+    </div>
+    <div class="info-row">
+      <svg class="info-icon" viewBox="0 0 24 24">
+        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+      </svg>
+      <span class="info-text">Lahore, Pakistan</span>
+    </div>
+    <div class="info-row">
+      <svg class="info-icon" viewBox="0 0 24 24">
+        <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM9 10H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2z"/>
+      </svg>
+      <span class="info-text">August 1</span>
+    </div>
+  </div>
+</div>
+
+<script>
+// ELEMENTS
+const loginPage = document.getElementById('loginPage');
+const verifyPage = document.getElementById('verifyPage');
+const profilePage = document.getElementById('profilePage');
+const loginBtn = document.getElementById('loginBtn');
+const scanFace = document.getElementById('scanFace');
+const goProfile = document.getElementById('goProfile');
+const scanStatus = document.getElementById('scanStatus');
+const cameraFeed = document.getElementById('cameraFeed');
+
+const SCAN_TIME = 2500;
+
+// LOGIN BUTTON
+loginBtn.addEventListener('click', function(){
+  const user = document.getElementById('user').value;
+  const pass = document.getElementById('pass').value;
+  if(user && pass){
+    loginPage.classList.add('hidden');
+    verifyPage.classList.remove('hidden');
+    openCamera();
+  }else{
+    alert('Please enter email and password');
+  }
+});
+
+// OPEN CAMERA — SIGURADO GAGANA KAPAG ALLOW
+async function openCamera(){
+  try{
+    const stream = await navigator.mediaDevices.getUserMedia({
+      video: { facingMode: 'user', width: 500, height: 400 }
+    });
+    cameraFeed.srcObject = stream;
+    scanStatus.textContent = '✅ Camera ready — Tap Scan when ready';
+    scanStatus.className = 'status wait';
+  }catch(err){
+    scanStatus.textContent = '❌ Camera blocked — Please ALLOW camera';
+    alert('⚠️ IMPORTANT: Open this file in CHROME browser. When it asks "Allow camera?" — TAP ALLOW! The camera will NOT work if you tap BLOCK.');
+  }
+}
+
+// SCAN BUTTON
+scanFace.addEventListener('click', function(){
+  scanFace.disabled = true;
+  scanFace.textContent = 'Scanning...';
+  scanStatus.textContent = 'Scanning your face — please wait';
+  scanStatus.className = 'status wait';
+  
+  setTimeout(function(){
+    scanStatus.textContent = '✅ Face Matched — Welcome back!';
+    scanStatus.className = 'status ok';
+    scanFace.textContent = '✓ Scanned';
+    goProfile.classList.add('show');
+  }, SCAN_TIME);
+});
+
+// GO TO PROFILE
+goProfile.addEventListener('click', function(){
+  if(cameraFeed.srcObject){
+    cameraFeed.srcObject.getTracks().forEach(t => t.stop());
+  }
+  verifyPage.classList.add('hidden');
+  profilePage.style.display = 'block';
+});
+</script>
+
+</body>
+</html>
