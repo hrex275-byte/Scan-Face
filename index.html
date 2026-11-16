@@ -42,26 +42,32 @@ body{background:#f0f2f5;color:#1c1e21;}
 /* === PROFILE PAGE === */
 .cover-container{width:100%;height:350px;background:#dddfe2;position:relative;overflow:hidden;}
 .cover-photo{width:100%;height:100%;object-fit:cover;}
-.menu-icon{position:absolute;top:16px;left:16px;width:40px;height:40px;background:rgba(255,255,255,0.9);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,0.1);z-index:10;}
-.menu-icon svg{width:22px;height:22px;fill:#1c1e21;}
+
+.menu-icon{position:absolute;top:16px;left:16px;width:40px;height:40px;background:rgba(255,255,255,0.95);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,0.12);z-index:10;}
+.menu-icon svg{width:22px;height:22px;fill:#65676b;}
+
 .top-icons{position:absolute;top:16px;right:16px;display:flex;gap:12px;align-items:center;z-index:10;}
-.top-icon{width:40px;height:40px;background:rgba(255,255,255,0.9);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,0.1);}
-.top-icon svg{width:20px;height:20px;fill:#1c1e21;}
-.share-note{position:absolute;bottom:16px;left:16px;background:rgba(255,255,255,0.95);color:#1c1e21;padding:8px 18px;border-radius:20px;font-size:15px;box-shadow:0 1px 3px rgba(0,0,0,0.1);font-weight:500;}
-.camera-btn-cover{position:absolute;bottom:16px;right:16px;background:rgba(255,255,255,0.95);border:none;border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,0.1);}
-.camera-btn-cover svg{width:22px;height:22px;fill:#1c1e21;}
+.top-icon{width:40px;height:40px;background:rgba(255,255,255,0.95);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,0.12);}
+.top-icon svg{width:22px;height:22px;fill:#65676b;}
+
+.share-note{position:absolute;bottom:16px;left:16px;background:rgba(255,255,255,0.95);color:#1c1e21;padding:8px 18px;border-radius:20px;font-size:15px;box-shadow:0 1px 3px rgba(0,0,0,0.12);font-weight:500;}
+
+.camera-btn-cover{position:absolute;bottom:16px;right:16px;background:rgba(255,255,255,0.95);border:none;border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,0.12);}
+.camera-btn-cover svg{width:22px;height:22px;fill:#65676b;}
 
 .profile-section{background:#ffffff;padding:0 16px 24px;margin-top:-80px;position:relative;}
 .profile-header{display:flex;align-items:flex-end;gap:16px;margin-bottom:16px;position:relative;flex-wrap:wrap;}
 .profile-pic-wrap{position:relative;margin-top:-80px;z-index:5;}
-.profile-pic{width:168px;height:168px;border-radius:50%;border:4px solid #ffffff;object-fit:cover;background:#dddfe2;box-shadow:0 1px 3px rgba(0,0,0,0.1);}
-.camera-btn-profile{position:absolute;bottom:8px;right:8px;background:#f0f2f5;border:none;border-radius:50%;width:34px;height:34px;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,0.1);}
-.camera-btn-profile svg{width:18px;height:18px;fill:#1c1e21;}
+.profile-pic{width:168px;height:168px;border-radius:50%;border:4px solid #ffffff;object-fit:cover;background:#dddfe2;box-shadow:0 1px 3px rgba(0,0,0,0.12);}
+.camera-btn-profile{position:absolute;bottom:8px;right:8px;background:#f0f2f5;border:none;border-radius:50%;width:34px;height:34px;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,0.12);}
+.camera-btn-profile svg{width:18px;height:18px;fill:#65676b;}
+
 .profile-info{flex:1;min-width:250px;padding-bottom:10px;}
 .name-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
 .profile-name{font-size:32px;font-weight:700;color:#1c1e21;}
 .dropdown-icon{width:32px;height:32px;background:#f0f2f5;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;}
-.dropdown-icon svg{width:16px;height:16px;fill:#1c1e21;}
+.dropdown-icon svg{width:16px;height:16px;fill:#65676b;}
+
 .profile-meta{font-size:15px;color:#65676b;margin-top:4px;}
 .profile-bio{font-size:15px;color:#1c1e21;line-height:1.5;margin:12px 0;}
 
@@ -134,9 +140,10 @@ const CONFIG = {
     <div class="menu-icon">
       <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
     </div>
+    
     <div class="top-icons">
       <div class="top-icon">
-        <svg viewBox="0 0 24 24"><path d="M17 3H7c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M7 18h10v-2H7v2zm0-5h10v-2H7v2zm0-7v2h10V6H7z"/></svg>
       </div>
       <div class="top-icon">
         <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5z"/></svg>
@@ -180,11 +187,11 @@ const CONFIG = {
 
     <div class="button-row">
       <button class="btn-dashboard">
-        <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:white;"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zm0-8v2h14V9H7z"/></svg>
+        <svg viewBox="0 0 24 24" fill="white"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zm0-8v2h14V9H7z"/></svg>
         Dashboard
       </button>
       <button class="btn-create">
-        <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:#1c1e21;"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+        <svg viewBox="0 0 24 24" fill="#1c1e21"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
         Create
       </button>
     </div>
